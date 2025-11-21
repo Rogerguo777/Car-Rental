@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
-    <title>訂單成立</title>
+    <title>訂單成立成功</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style src="../static/css/order-success.css">
+
+    </style>
 </head>
+
 <body>
 
-<h2>您的訂單已成立！</h2>
+    <div class="container">
+        <h1>🎉 訂單成立成功！🎉</h1>
+        <p style="font-size: 17px; margin-top:6px;">我們已收到您的預約資訊</p>
 
-<p>訂單編號：<span id="orderNo"></span></p>
+        <p id="orderNoDisplay" style="font-size: 20px; font-weight: bold; margin-top: 16px;">
+            訂單編號：讀取中…
+        </p>
 
-<a href="order-search.html">前往訂單查詢</a>
+        <div id="orderDetail" class="order-info-box">
+            <p class="info-row">讀取訂單資訊中...</p>
+        </div>
 
-<script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const orderNo = urlParams.get("orderNo") || localStorage.getItem("lastOrderNo");
+        <div class="loading" id="loadingText">查詢訂單資料中…</div>
 
-    document.getElementById("orderNo").textContent = orderNo || "查無編號";
-</script>
+        <div class="btn-area">
+            <button class="btn-main" onclick="window.location.href='/'">返回首頁</button>
+            <button class="btn-secondary" onclick="window.location.href='/order-query.html'">查詢其他訂單</button>
+            <button class="btn-outline" onclick="window.location.href='/index.html'">再下一筆訂單</button>
+        </div>
+    </div>
+
+
+    <script src="../static/js/order-success.js">
+    </script>
 
 </body>
+
 </html>

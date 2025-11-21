@@ -1,9 +1,7 @@
 package com.demo.controller;
 
 import java.util.List;
-import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,9 +25,7 @@ public class DriverOrderController {
 
 	private final DriverOrderService driverOrderService;
 
-	/**
-	 * 建立新訂單
-	 */
+	// 建立新訂單
 	@PostMapping
 	public ResponseEntity<?> createOrder(@RequestBody DriverOrder dorder) {
 		try {
@@ -40,9 +36,7 @@ public class DriverOrderController {
 		}
 	}
 
-	/**
-	 * 依電話查詢訂單
-	 */
+	// 依電話查詢訂單
 	@GetMapping("/phone/{phone}")
 	public ResponseEntity<?> getOrdersByPhone(@PathVariable String phone) {
 		List<DriverOrder> list = driverOrderService.findDorderByPhone(phone);
@@ -52,9 +46,7 @@ public class DriverOrderController {
 		return ResponseEntity.ok(list);
 	}
 
-	/**
-	 * 查詢所有訂單
-	 */
+	// 查詢所有訂單
 	@GetMapping
 	public ResponseEntity<?> getAllOrders() {
 		return ResponseEntity.ok(driverOrderService.findAll());

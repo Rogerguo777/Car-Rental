@@ -3,7 +3,6 @@ package com.demo.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -42,7 +41,7 @@ public class DriverOrder {
 	private int totalPrice;
 
 	@JsonIgnoreProperties({ "dorders" }) // ← 忽略反向關聯，不會遞迴
-	// @JsonBackReference
+	// @JsonBackReference // 配合@JsonManagedReference，已用上面@取代
 	@ManyToOne
 	@JoinColumn(name = "adscar_id", nullable = false)
 	private ADSCar adscar;

@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -44,7 +43,7 @@ public class ADSCar {
 	private Date createDate;
 
 	@JsonIgnoreProperties({ "adscar" }) // 忽略掉反向的欄位，不遞迴
-	// @JsonManagedReference // 為防止遞迴循環讀取資料
+	// @JsonManagedReference // 為防止遞迴循環讀取資料，已用上面@取代
 	@OneToMany(mappedBy = "adscar", cascade = CascadeType.ALL)
 	private List<DriverOrder> dorders;
 }

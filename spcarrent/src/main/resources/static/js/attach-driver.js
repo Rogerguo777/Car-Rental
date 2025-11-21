@@ -1,4 +1,3 @@
-// attach-driver.js (完整版)
 // 注意：如果後端主機/port 不同，修改 API_BASE
 const API_BASE = "http://localhost:8080";
 
@@ -296,7 +295,7 @@ async function submitOrder() {
     pickupPlace: pickupPlace,
     dropoffPlace: dropoffPlace,
     pickupDate: pickupDate, // Spring Boot LocalDate 會解析 yyyy-MM-dd
-    pickupTime: pickupTime + ":00", // 最好傳 hh:mm:ss，Spring LocalTime 可解析
+    pickupTime: pickupTime + ":00", // 傳 hh:mm:ss，Spring LocalTime 可解析
     distanceKm: distance,
     passengerCount: passengerCount,
     luggageCount: luggageCount,
@@ -320,8 +319,8 @@ async function submitOrder() {
       // document.querySelector("form").reset();
       // 將 orderNo 寫入 LocalStorage，再跳轉成功頁面
       localStorage.setItem("lastOrderNo", created.orderNo);
-      // 根據api整合、調整
-      window.location.href = `/order-success.html`;
+      // 跳轉連結根據api整合、調整
+      window.location.href = `/order-success.html?orderNo=${created.orderNo}`;
 
     } else {
       const text = await resp.text();
@@ -346,5 +345,3 @@ document.addEventListener("DOMContentLoaded", () => {
   const dateInput = document.getElementById("pickupDate");
   if (dateInput) dateInput.setAttribute("min", today);
 });
-
-// 程式結束
