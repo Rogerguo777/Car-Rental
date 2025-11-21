@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>訂單成立</title>
+</head>
+<body>
+
+<h2>您的訂單已成立！</h2>
+
+<p>訂單編號：<span id="orderNo"></span></p>
+
+<a href="order-search.html">前往訂單查詢</a>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderNo = urlParams.get("orderNo") || localStorage.getItem("lastOrderNo");
+
+    document.getElementById("orderNo").textContent = orderNo || "查無編號";
+</script>
+
+</body>
+</html>
