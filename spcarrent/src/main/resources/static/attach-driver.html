@@ -20,7 +20,7 @@
 
 <body>
     <div class="container py-5">
-        <h3 class="headline mb-4">搜尋接送條件</h3>
+        <h3 class="headline mb-4">設置接送條件</h3>
         <form id="conditionForm">
             <div class="mb-3">
                 <label>姓名</label>
@@ -155,10 +155,17 @@
 
             <!--<button type="button" class="btn btn-success" onclick="calculatePrice()">計算費用</button>-->
             <button type="button" class="btn btn-primary ms-2" onclick="submitOrder()">送出訂單</button>
+
+            
+            <!-- 備用按鈕，隱藏的成功跳轉按鈕 -->
+            <button type="button" id="successBtn" style="display:none;" onclick="location.href='order-success.html'">
+                按此跳轉
+            </button>
+
         </form>
     </div><br>
     <script src="../static/js/attach-driver.js"></script>
-   
+
 </body>
 
 </html>

@@ -320,7 +320,11 @@ async function submitOrder() {
       // 將 orderNo 寫入 LocalStorage，再跳轉成功頁面
       localStorage.setItem("lastOrderNo", created.orderNo);
       // 跳轉連結根據api整合、調整
-      window.location.href = `/order-success.html?orderNo=${created.orderNo}`;
+      window.location.href = `order-success.html?orderNo=${created.orderNo}`;
+      //window.location.href = "order-success.html";
+      // 顯示隱藏的成功跳轉按鈕
+      //document.getElementById("successBtn").style.display = "inline-block";
+
 
     } else {
       const text = await resp.text();
@@ -337,8 +341,10 @@ async function submitOrder() {
 document.addEventListener("DOMContentLoaded", () => {
   const pickupPlace = document.getElementById("pickupPlace");
   const dropoffPlace = document.getElementById("dropoffPlace");
+  const signage = document.getElementById("signage");
   pickupPlace?.addEventListener("change", updateDistanceAndPrice);
   dropoffPlace?.addEventListener("change", updateDistanceAndPrice);
+  signage?.addEventListener("change", updateDistanceAndPrice);
 
   // 初始化：把日期 min 設為今天
   const today = new Date().toISOString().split("T")[0];

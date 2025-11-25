@@ -25,6 +25,8 @@ public class ADSCarController {
 
 	private final ADSCarService adscarService;
 
+	// 以下是提供給admin帳號使用的api，包含查詢附駕車輛、圖片以及新增圖片
+	
 	@GetMapping
 	public ResponseEntity<?> getAllCars() {
 		return ResponseEntity.ok(adscarService.findAll());
